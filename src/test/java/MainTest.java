@@ -5,16 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MainTest {
 
-    Main sut;
-
     @BeforeAll
     public static void start() {
         out.println("Class 'Main' tests start");
-    }
-
-    @BeforeEach
-    public void startTest() {
-        sut = new Main();
     }
 
     @AfterAll
@@ -22,30 +15,38 @@ public class MainTest {
         out.println("Class 'Main' tests finish");
     }
 
-    @AfterEach
-    public void finishTest() {
-        sut = null;
-    }
-
     @Test
-    public void isIntegerTest() {
+    public void isIntegerTrueTest() {
         //
-        out.println("Method 'isInteger' test start");
+        out.println("Method 'isInteger' test for Integer start");
 
         // arrange:
         String a = "5";
-        String b = "abc";
-        var expectedThrow = ClassCastException.class;
 
         // act:
         boolean resultA = Main.isInteger(a);
 
         // assert:
         assertTrue(resultA);
+
+        //
+        out.println("Method 'isInteger' test for Integer finish");
+    }
+
+    @Test
+    public void isIntegerFalseTest() {
+        //
+        out.println("Method 'isInteger' test for String start");
+
+        // arrange:
+        String b = "abc";
+
+        // act:
+        // assert:
         assertFalse(Main.isInteger(b));
 
         //
-        out.println("Method 'isInteger' test finish");
+        out.println("Method 'isInteger' test for String finish");
     }
 
 }
